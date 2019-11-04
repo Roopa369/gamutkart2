@@ -2,12 +2,8 @@ pipeline {
     agent any
 
 	tools {
-		maven 'maven3.6'
+		maven 'maven1-2'
 	}
-//
-//	environment {
-//		M2_INSTALL = "/home/gamut/Distros/apache-maven-3.6.0/bin/mvn"
-//	}
 
     stages {
 		stage('Clone-Repo') {
@@ -27,8 +23,8 @@ pipeline {
 		}
 		stage('Deployment') {
 	    	steps {
-				sh 'sshpass -p "gamut" scp target/gamutkart.war gamut@172.17.0.3:/home/gamut/Distros/apache-tomcat-8.5.38/webapps'
-				sh 'sshpass -p "gamut" ssh gamut@172.17.0.3 "JAVA_HOME=/home/gamut/Distros/jdk1.8.0_151" "/home/gamut/Distros/apache-tomcat-8.5.38/bin/startup.sh"'
+				sh 'sshpass -p "roopa" scp target/gamutkart.war roopa@172.17.0.3:/root/apache-tomcat-8.5.45/webapps'
+				//sh 'sshpass -p "gamut" ssh gamut@172.17.0.3 "JAVA_HOME=/home/gamut/Distros/jdk1.8.0_151" "/home/gamut/Distros/apache-tomcat-8.5.38/bin/startup.sh"'
 	    	}
 		}
     }
