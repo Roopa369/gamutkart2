@@ -13,7 +13,7 @@ pipeline {
 		}
 		stage('Build') {
 	    	steps {
-				sh 'mvn install -DskipTests'
+				sh 'mvvn install -DskipTests'
 			}
 	    }
 		stage('Unit Tests') {
